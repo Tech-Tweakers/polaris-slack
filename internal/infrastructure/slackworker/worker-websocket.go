@@ -3,16 +3,16 @@ package slackworker
 import (
 	"context"
 	"fmt"
-	"slack-messages-api/internal/domain/appcontext"
-	"slack-messages-api/internal/domain/slackmessagesapi"
-	"slack-messages-api/internal/infrastructure/botengines"
-	"slack-messages-api/internal/infrastructure/environment"
+	"polaris-slack/internal/domain/appcontext"
+	"polaris-slack/internal/domain/polarisslack"
+	"polaris-slack/internal/infrastructure/botengines"
+	"polaris-slack/internal/infrastructure/environment"
 	"strings"
 
 	"log"
 	"os"
 
-	"slack-messages-api/internal/infrastructure/logger"
+	"polaris-slack/internal/infrastructure/logger"
 
 	"github.com/slack-go/slack"
 	"github.com/slack-go/slack/slackevents"
@@ -23,9 +23,9 @@ var payloadText string
 var payloadTS string
 var id int = 0
 var replied bool = false
-var r slackmessagesapi.MessageList
-var setup slackmessagesapi.Messages
-var toGo []slackmessagesapi.Messages
+var r polarisslack.MessageList
+var setup polarisslack.Messages
+var toGo []polarisslack.Messages
 
 func StartPolling(appctx appcontext.Context, input Input) {
 	logger, dispose := logger.New()
@@ -42,7 +42,7 @@ func StartPolling(appctx appcontext.Context, input Input) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	r.Messages = make([]slackmessagesapi.Messages, 0)
+	r.Messages = make([]polarisslack.Messages, 0)
 
 	go func(ctx context.Context, client *slack.Client, socketClient *socketmode.Client) {
 		for {
@@ -78,13 +78,13 @@ func HandleEventMessage(event slackevents.EventsAPIEvent) (string, string) {
 	return payloadText, payloadTS
 }
 
-func CheckNewMessages() []slackmessagesapi.Messages {
+func CheckNewMessages() []polarisslack.Messages {
 	logger, dispose := logger.New()
 	defer dispose()
 	if payloadTS == "" {
 		logger.Info("No new messages")
 	} else {
-		setup = slackmessagesapi.Messages{ID: id, PayloadTS: payloadTS, PayloadText: payloadText, Replied: replied}
+		setup = polarisslack.Messages{ID: id, PayloadTS: payloadTS, PayloadText: payloadText, Replied: replied}
 		if payloadText == "" {
 			toGo = r.Messages
 		} else {

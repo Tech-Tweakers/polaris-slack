@@ -2,13 +2,13 @@ package slackclient
 
 import (
 	"encoding/json"
-	slackmessagesapi "slack-messages-api/internal/domain/slackmessagesapi"
-	"slack-messages-api/internal/infrastructure/logger"
+	polarisslack "polaris-slack/internal/domain/polarisslack"
+	"polaris-slack/internal/infrastructure/logger"
 
 	"github.com/gin-gonic/gin"
 )
 
-var Message slackmessagesapi.Messages
+var Message polarisslack.Messages
 var PayloadText string
 var PayloadTS string
 var Replied bool
@@ -19,7 +19,7 @@ func GetPayloadFrontEnd(c *gin.Context) {
 	logger, dispose := logger.New()
 	defer dispose()
 
-	body := slackmessagesapi.Messages{}
+	body := polarisslack.Messages{}
 	decoder := json.NewDecoder(c.Request.Body)
 	logger.Info("Getting Payload" + body.PayloadTS)
 	if err := decoder.Decode(&body); err != nil {

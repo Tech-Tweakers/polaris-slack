@@ -1,9 +1,9 @@
 package slackclient
 
 import (
-	"slack-messages-api/internal/infrastructure/environment"
-	"slack-messages-api/internal/infrastructure/logger"
-	"slack-messages-api/internal/infrastructure/slackworker"
+	"polaris-slack/internal/infrastructure/environment"
+	"polaris-slack/internal/infrastructure/logger"
+	"polaris-slack/internal/infrastructure/slackworker"
 
 	"github.com/slack-go/slack"
 )

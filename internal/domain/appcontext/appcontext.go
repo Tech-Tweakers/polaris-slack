@@ -2,7 +2,7 @@ package appcontext
 
 import (
 	"context"
-	"slack-messages-api/internal/infrastructure/logger/logwrapper"
+	"polaris-slack/internal/infrastructure/logger/logwrapper"
 )
 
 type Context interface {

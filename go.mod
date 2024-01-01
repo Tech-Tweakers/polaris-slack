@@ -1,4 +1,4 @@
-module slack-messages-api
+module polaris-slack
 
 go 1.21
 

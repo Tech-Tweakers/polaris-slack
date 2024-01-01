@@ -1,13 +1,13 @@
 package main
 
 import (
-	"slack-messages-api/internal/domain/appcontext"
-	"slack-messages-api/internal/domain/slackmessagesapi"
-	"slack-messages-api/internal/infrastructure/api"
-	"slack-messages-api/internal/infrastructure/environment"
-	"slack-messages-api/internal/infrastructure/logger"
-	"slack-messages-api/internal/infrastructure/logger/logwrapper"
-	"slack-messages-api/internal/infrastructure/slackworker"
+	"polaris-slack/internal/domain/appcontext"
+	"polaris-slack/internal/domain/polarisslack"
+	"polaris-slack/internal/infrastructure/api"
+	"polaris-slack/internal/infrastructure/environment"
+	"polaris-slack/internal/infrastructure/logger"
+	"polaris-slack/internal/infrastructure/logger/logwrapper"
+	"polaris-slack/internal/infrastructure/slackworker"
 
 	"go.uber.org/zap"
 )
@@ -45,13 +45,13 @@ func main() {
 
 }
 
-func setupSlackMessagesAPI(ctx appcontext.Context) (slackMessagesAPIUseCases slackmessagesapi.UseCases, err error) {
-	slackMessageApiInput := &slackmessagesapi.Input{}
-	slackMessagesAPIUseCases = slackmessagesapi.New(ctx, slackMessageApiInput)
+func setupSlackMessagesAPI(ctx appcontext.Context) (slackMessagesAPIUseCases polarisslack.UseCases, err error) {
+	slackMessageApiInput := &polarisslack.Input{}
+	slackMessagesAPIUseCases = polarisslack.New(ctx, slackMessageApiInput)
 	return slackMessagesAPIUseCases, err
 }
 
-func setupWorker(ctx appcontext.Context, logger logwrapper.LoggerWrapper, slackMessagesAPIUseCases slackmessagesapi.UseCases) {
+func setupWorker(ctx appcontext.Context, logger logwrapper.LoggerWrapper, slackMessagesAPIUseCases polarisslack.UseCases) {
 	logger.Info("Configuring Worker")
 	input := slackworker.Input{
 		Logger:          logger,

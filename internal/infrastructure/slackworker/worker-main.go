@@ -1,14 +1,14 @@
 package slackworker
 
 import (
-	"slack-messages-api/internal/domain/appcontext"
-	slackmessageapi "slack-messages-api/internal/domain/slackmessagesapi"
-	"slack-messages-api/internal/infrastructure/logger/logwrapper"
+	"polaris-slack/internal/domain/appcontext"
+	polarisslack "polaris-slack/internal/domain/polarisslack"
+	"polaris-slack/internal/infrastructure/logger/logwrapper"
 )
 
 type Input struct {
 	Logger          logwrapper.LoggerWrapper
-	SlackMessageAPI slackmessageapi.UseCases
+	SlackMessageAPI polarisslack.UseCases
 }
 
 func Start(ctx appcontext.Context, input Input) {

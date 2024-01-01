@@ -1,9 +1,9 @@
 package api
 
 import (
-	"slack-messages-api/internal/domain/appcontext"
-	"slack-messages-api/internal/infrastructure/slackclient"
-	"slack-messages-api/internal/infrastructure/slackworker"
+	"polaris-slack/internal/domain/appcontext"
+	"polaris-slack/internal/infrastructure/slackclient"
+	"polaris-slack/internal/infrastructure/slackworker"
 
 	"github.com/gin-gonic/gin"
 )

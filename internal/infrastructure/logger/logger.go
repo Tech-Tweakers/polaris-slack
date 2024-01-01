@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	"slack-messages-api/internal/infrastructure/environment"
+	"polaris-slack/internal/infrastructure/environment"
 
 	"go.uber.org/zap"
 )

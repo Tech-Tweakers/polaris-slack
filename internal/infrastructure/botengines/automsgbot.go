@@ -1,9 +1,9 @@
 package botengines
 
 import (
-	"slack-messages-api/internal/infrastructure/environment"
-	"slack-messages-api/internal/infrastructure/logger"
-	"slack-messages-api/internal/infrastructure/polaris"
+	"polaris-slack/internal/infrastructure/environment"
+	"polaris-slack/internal/infrastructure/logger"
+	"polaris-slack/internal/infrastructure/polaris"
 
 	"github.com/slack-go/slack"
 )
