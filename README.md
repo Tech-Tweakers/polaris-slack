@@ -15,9 +15,39 @@
 
 ## About
 
-This project is a simple REST API to make a bridge between Polaris and Slack.
+This project is a simple REST API to make a bridge between Polaris and Slack Apps.
 
 ## Setup
+
+Create a Slack App with the following yaml:
+  
+  ```
+  display_information:
+  name: Polaris
+  description: AI Chatbot
+  background_color: "#3b1902"
+features:
+  bot_user:
+    display_name: Polaris
+    always_online: false
+oauth_config:
+  scopes:
+    bot:
+      - channels:history
+      - chat:write
+      - chat:write.customize
+      - incoming-webhook
+      - channels:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - message.channels
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
+  ```
 
 Create a **.env.local** file in the root of the project and add the following variables:
 
