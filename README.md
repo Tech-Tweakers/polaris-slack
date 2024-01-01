@@ -77,6 +77,10 @@ go run cmd/main.go
 ## API Endpoints
 
 ```
+#
+# GET list all the messages intercepted by the AI
+#
+
 GET: http://localhost:9990/entries
 
 #
