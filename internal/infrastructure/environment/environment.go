@@ -22,7 +22,6 @@ type single struct {
 	SLACK_CHANNEL_ID string
 	SLACK_APP_TOKEN  string
 	SLACK_API_URL    string
-	AUTO_REPLY       string
 }
 
 func init() {
@@ -42,7 +41,6 @@ func (e *single) Setup() {
 	e.SLACK_CHANNEL_ID = os.Getenv("SLACK_CHANNEL_ID")
 	e.SLACK_APP_TOKEN = os.Getenv("SLACK_APP_TOKEN")
 	e.SLACK_API_URL = os.Getenv("SLACK_API_URL")
-	e.AUTO_REPLY = os.Getenv("AUTO_REPLY")
 }
 
 func (e *single) IsDevelopment() bool {

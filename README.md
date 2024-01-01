@@ -17,6 +17,50 @@
 
 This project is a simple REST API to make a bridge between Polaris and Slack.
 
+## Setup
+
+Create a **.env.local** file in the root of the project and add the following variables:
+
+```
+#
+# Global settings
+#
+
+ENVIRONMENT=development
+LOG_LEVEL=debug
+
+#
+# Slack integration settings
+#
+
+SLACK_CHANNEL_ID= # Slack Channel ID to send messages
+SLACK_AUTH_TOKEN= # Slack OAuth Token
+SLACK_APP_TOKEN=  # Slack App Token
+SLACK_API_URL=https://api.slack.com/
+```
+## Run
+
+```
+go run cmd/main.go
+```
+
+## API Endpoints
+
+```
+GET: http://localhost:9990/entries
+
+#
+# POST not used since the AI is replying to the messages. For tests only.
+#
+
+POST: http://localhost:9990/slack-reply
+    {
+      "payloadtext": "reply to existing message",
+      "payloadts": "1704049551.547199"
+    }
+```
+## Polaris Projects
+
 - Polaris Frontend: https://github.com/Tech-Tweakers/polaris-frontend :star:
 - Polaris Backend: https://github.com/Tech-Tweakers/polaris-chatbot :star:
 
