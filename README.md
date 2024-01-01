@@ -78,13 +78,13 @@ go run cmd/main.go
 
 ```
 #
-# GET list all the messages intercepted by the AI
+# List all the messages intercepted by the AI
 #
 
 GET: http://localhost:9990/entries
 
 #
-# POST not used since the AI is replying to the messages. For tests only.
+# Reply message (not used since the AI is replying to the messages. For tests only.)
 #
 
 POST: http://localhost:9990/slack-reply
